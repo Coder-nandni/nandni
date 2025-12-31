@@ -859,22 +859,14 @@
 
 
         // Initialize the page
-    const bgMusic = document.getElementById("bgMusic");
+    
+const bgMusic = document.getElementById("bgMusic");
+document.getElementById("celebrateBtn").addEventListener("click", () => {
+  bgMusic.volume = 0.4;
+  bgMusic.play();
+});
 
-    // Try autoplay on load
-    window.addEventListener("load", () => {
-        bgMusic.volume = 0.4; // volume control (0.0 – 1.0)
-        bgMusic.play().catch(() => {
-            console.log("Autoplay blocked, waiting for user interaction");
-        });
-    });
 
-    // Play music on first user click (browser restriction fix)
-    document.addEventListener("click", () => {
-        if (bgMusic.paused) {
-            bgMusic.play();
-        }
-    });
 
         window.addEventListener('load', () => {
             // Start animations
@@ -1015,4 +1007,5 @@ gsap.to(romanticMsg, {
         });
     </script>
 </body>
+
 </html>
